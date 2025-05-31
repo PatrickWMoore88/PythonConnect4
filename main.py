@@ -1,22 +1,6 @@
-"""
-Connect4 App -
-This is the project assignment for the Input and Output chapater in the Python Is Easy course on Pirple.com.
-I was asked to build the popular game Connect4. Here I have drawn the board, allowed two players to take 
-turns placing their pieces on the board. Then the game will end when either the board is filled (draw) or
-one of player to connect 4 of thier pieces vertically, horizontally, or diagonally for the win!
-"""
-
-"""
-# The game should be similar to
-#| | | | | | | |
-#| | | | | | | |
-#| | | | | | | |
-#| | | | | | | |
-#| | | | | | | |
-#| | | | | | | |
-"""
-
 play=True
+RED_CIRCLE = '\033[91m●\033[0m'      # Red circle
+YELLOW_CIRCLE = '\033[93m●\033[0m'   # Yellow circle
 
 # Define the function drawField that will print the game field
 def drawField(field):
@@ -35,7 +19,7 @@ def drawField(field):
 
 # Condensing Repeated Code To A Single Function 
 def winner(field, col, row):
-    if field[col][row] == "X":
+    if field[col][row] == RED_CIRCLE:
         print("Player 1 Wins!")
     else:
         print("Player 2 Wins!")
@@ -102,9 +86,9 @@ def movePiece(player, field, col):
     while i >= 0:
         if field[col][i] == " ":
             if player == 1:
-                field[col][i] = "X"
+                field[col][i] = RED_CIRCLE
             else:
-                field[col][i] = "O"
+                field[col][i] = YELLOW_CIRCLE
             return field, True
         i -= 1
      
